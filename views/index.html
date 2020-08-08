@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+
+  <div class="container bg-white py-3 my-5 rounded shadow-lg ">
+    <h3 class="text-center py-4 text-info">Quản lý sinh viên</h3>
+    <div class="row">
+      <div class="col-lg-6 col-sm-12" >
+        <form class="form">
+          <div class="form-group" >
+            <span class="text-secondary">Mã SV</span>
+            <input class="form-control font-weight-bold border border-info border border-info " id="MaSV" />
+            <p class="errMessage text-danger" id="errorMaSV" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">Họ tên</span>
+            <input class="form-control font-weight-bold border border-info border border-info" id="HoTen" />
+            <p class="errMessage text-danger" id="errorHoTen" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">Email</span>
+            <input class="form-control font-weight-bold border border-info border border-info" id="Email" />
+            <p class="errMessage text-danger" id="errorEmail" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">SoDT</span>
+            <input class="form-control font-weight-bold border border-info border border-info" id="SoDT" />
+            <p class="errMessage text-danger" id="errorSoDT" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">CMND</span>
+            <input class="form-control font-weight-bold border border-info border border-info" id="CMND" />
+            <p class="errMessage text-danger" id="errorCMND" style="height: 15px;"></p>
+          </div>
+        </form>  
+      </div>
+
+      <div class="col-lg-6 col-sm-12">
+        <form action="" class="form">
+          <div class="form-group">
+            <span class="text-secondary">Điểm toán</span>
+            <input type="text" class="form-control font-weight-bold border border-info border border-info" id="DiemToan" />
+            <p class="errMessage text-danger" id="errorDiemToan" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">Điểm lý</span>
+            <input type="text" class="form-control font-weight-bold border border-info border border-info" id="DiemLy" />
+            <p class="errMessage text-danger" id="errorDiemLy" style="height: 15px;"></p>
+          </div>
+          <div class="form-group">
+            <span class="text-secondary">Điểm hóa</span>
+            <input type="text" class="form-control font-weight-bold border border-info border border-info" id="DiemHoa" />
+            <p class="errMessage text-danger" id="errorDiemHoa" style="height: 15px;"></p>
+          </div>
+        </form>
+
+          <div class="form-group">
+            <button class="btn btn-info mb-4" id="btnThemSinhVien" >Thêm sinh viên</button>
+            <button class="btn btn-info mb-4" id="btnCapNhatSinhVien">Cập nhật sinh viên</button>
+          </div>
+      </div>
+
+    </div>
+    
+    <div class="search row my-4">
+      <div class="col-8">
+        <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm sinh viên bằng MSSV hoặc Họ Tên"></input>
+      </div>
+    </div>
+
+    <table class="table bg-white">
+      <thead>
+        <tr>
+          <th>Mã SV</th>
+          <th>Họ tên</th>
+          <th>Email</th>
+          <th>Số điện thoại</th>
+          <th>CMND</th>
+          <th>Điểm toán</th>
+          <th>Điểm lý</th>
+          <th>Điểm Hóa</th>
+          <th>Xóa</th>
+          <th>Cập nhật</th>
+        </tr>
+      </thead>
+      <tbody id="tblSinhVien">
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!-- lib -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+  <!-- model -->
+  <script src="../models/SinhVien.js"></script>
+  
+  <!-- service -->
+  <script src="../services/SinhVienService.js"></script>
+
+  <!-- controllers -->
+  <script src="../controllers/index.js"></script>
+
+</body>
+
+</html>
